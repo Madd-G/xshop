@@ -4,14 +4,13 @@ import 'package:xshop/views/home_screen.dart';
 
 class RemoteServices {
   // var client = http.Client();
-  final String url = 'https://fakestoreapi.com/product';
+  final String url = 'https://fakestoreapi.com/products';
 
 
   Future<List<Product>> fetchProducts() async {
     http.Response response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
       var jsonString = response.body;
-      HomeScreen homeScreen = HomeScreen(response.statusCode);
       return productFromJson(jsonString);
     }
     else {
