@@ -6,6 +6,7 @@ class ProductController extends GetxController {
   var isLoading = true.obs;
   var productList = <Product>[].obs;
   var isOneList = false.obs;
+  var productOnCart = 0.obs;
 
   var remoteServices = RemoteServices();
 
@@ -24,5 +25,9 @@ class ProductController extends GetxController {
     } finally {
       isLoading(false);
     }
+  }
+
+  addCart() {
+    return productOnCart.value ++;
   }
 }
